@@ -1,0 +1,93 @@
+/* Fundo do site com imagem (como no principal) */
+/*
+  Define o fundo da página como uma imagem de URL externa,
+  centralizada e cobrindo toda a tela, sem repetição.
+*/
+body {
+  background: url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
+  no-repeat center center / cover;
+
+  font-family: Arial, sans-serif; /* Define uma fonte limpa e fácil de ler */
+  color: #333; /* Cor base para o texto (será sobrescrita em vários lugares) */
+  margin: 0; /* Remove espaçamento externo */
+  padding: 0; /* Remove espaçamento interno */
+  position: relative; /* Necessário para permitir a sobreposição com ::before */
+}
+
+/*
+  Cria uma camada escura semi-transparente sobre o fundo
+  para melhorar a legibilidade do conteúdo por cima.
+*/
+body::before {
+  content: ""; /* Elemento vazio obrigatório */
+  position: fixed; /* Fica fixo no fundo da tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Preto com 40% de opacidade */
+  z-index: -1; /* Fica atrás de todo o conteúdo */
+}
+
+/*
+  Estilo para o título principal (Links Interessantes).
+  É centralizado e com cor branca e sombra para destacar.
+*/
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000; /* Sombra preta suave para destacar do fundo */
+}
+
+/*
+  Define o contêiner da lista com fundo escuro transparente,
+  centralizado e com sombra e bordas arredondadas.
+*/
+ul {
+  max-width: 600px; /* Largura máxima */
+  margin: 40px auto; /* Centraliza horizontalmente */
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto translúcido */
+  padding: 20px;
+  border-radius: 10px; /* Arredondamento das bordas */
+  list-style: none; /* Remove as bolinhas da lista */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra leve */
+}
+
+/*
+  Cada item da lista terá espaçamento e tamanho de fonte definidos.
+  A cor branca garante que o texto fique visível no fundo escuro.
+*/
+ul li {
+  color: #ffffff;
+  margin: 15px 0; /* Espaço entre os itens */
+  font-size: 18px;
+}
+
+/*
+  Define o estilo visual dos links (cor dourada, sem sublinhado)
+  com transição suave para efeitos.
+*/
+ul li a {
+  color: #ffd700; /* Cor dourada */
+  font-weight: bold; /* Negrito */
+  text-decoration: none; /* Sem sublinhado */
+  transition: color 0.3s ease, transform 0.3s ease; /* Efeitos suaves */
+}
+
+/*
+  Efeito quando o mouse passa sobre os links:
+  cor branca, sublinhado e leve aumento do tamanho (zoom).
+*/
+ul li a:hover {
+  color: #ffffff; /* Muda para branco */
+  text-decoration: underline; /* Adiciona sublinhado */
+  transform: scale(1.05); /* Leve zoom para destacar */
+}
+
+/*
+  Parágrafos com sombra para facilitar a leitura sobre o fundo escuro.
+*/
+p {
+  text-shadow: 1px 1px 3px #000;
+}
