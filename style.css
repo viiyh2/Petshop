@@ -1,6 +1,6 @@
 /* Fundo geral do site */
 body {
-  background: url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
+  background: url("https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
   no-repeat center center / cover;
   font-family: Arial, sans-serif;
   color: #333;
@@ -30,22 +30,30 @@ header {
 
 /* Menu de navegação */
 nav ul {
-  list-style-type: none;
-  background-color: rgba(42, 93, 132, 0.9);
-  padding: 10px;
-  margin: 0;
-  text-align: center;
+    list-style-type: none;
+    background-color: rgba(42, 93, 132, 0.9);
+    padding: 10px;
+    margin: 0;
+    /* text-align: center;  <-- Você pode remover esta linha depois de adicionar o flexbox e testar*/
+
+    /* --- NOVAS PROPRIEDADES DE FLEXBOX --- */
+    display: flex; /* Isso transforma o 'ul' em uma caixa flexível */
+    justify-content: center; /* Isso centraliza os 'li's na linha */
+    gap: 30px; /* Isso adiciona um espaço de 30px ENTRE cada 'li' */
+    /* --- FIM DAS NOVAS PROPRIEDADES --- */
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 15px;
-}
+
+
 
 nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  color: white; /* Para a cor do texto ser branca */
+  text-decoration: none; /* Para remover o sublinhado padrão dos links */
+  font-weight: bold; /* Para o texto ficar negrito */
+  /* Se você quiser um espaçamento interno nos links (tipo um botão), pode adicionar padding aqui: */
+  padding: 8px 15px; /* Exemplo: 8px em cima/baixo e 15px nas laterais */
+  display: block; /* Para o padding funcionar melhor e o link ocupar mais área */
+  transition: color 0.3s ease; /* Adiciona uma transição suave na cor ao passar o mouse */
 }
 
 nav ul li a:hover {
@@ -136,4 +144,24 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #1b3f5e;
+}
+
+main {
+    /* Adicione estas propriedades para o main virar um container flexbox */
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+    align-items: center; /* Centraliza os itens horizontalmente dentro do main */
+    gap: 40px; /* Adiciona um espaço grande entre cada seção */
+    padding: 20px; /* Adicione um padding geral no main para não colar nas bordas */
+    max-width: 1000px; /* Limita a largura máxima do conteúdo para não ficar muito esticado */
+    margin: 20px auto; /* Centraliza o main na página */
+    background-color: rgba(255, 255, 255, 0.1); /* Um fundo levemente transparente para o main */
+    border-radius: 10px;
+}
+
+/* Você pode querer centralizar os h2 dentro de suas seções também */
+.services-section, .steps-section, .price-table-section {
+    width: 100%; /* Faz a seção ocupar toda a largura disponível no main */
+    text-align: center; /* Centraliza o texto dentro da seção */
+    /* Outros estilos para cada seção se quiser */
 }
